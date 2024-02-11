@@ -37,18 +37,22 @@ class AcessoController extends Controller
 
     public function autenticar(Request $solicitacao_autenticar)
     {
-        $recebe_usuario = $solicitacao_autenticar->nome_acesso;
-        $recebe_senha = $solicitacao_autenticar->senha_acesso;
-
-        $usuario = User::where("usuario","=",$recebe_usuario)->where("senha","=",$recebe_senha)->first();
-
-        if($usuario)
-        {
-            session()->put("nome_usuario",$usuario->nome);
+        if(session()->has("nome_usuario")){
             return view("template.index");
         }else{
-            session()->flash("dados_errados","Favor verificar os dados para acesso");
-            return redirect()->back();
+            $recebe_usuario = $solicitacao_autenticar->nome_acesso;
+            $recebe_senha = $solicitacao_autenticar->senha_acesso;
+
+            $usuario = User::where("usuario","=",$recebe_usuario)->where("senha","=",$recebe_senha)->first();
+
+            if($usuario)
+            {
+                session()->put("nome_usuario",$usuario->nome);
+                return view("template.index");
+            }else{
+                session()->flash("dados_errados","Favor verificar os dados para acesso");
+                return redirect()->back();
+            }
         }
     }
 }

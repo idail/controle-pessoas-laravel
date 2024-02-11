@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AcessoController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-
+Route::get('/', InicioController::class)->name('home');
 Route::get('/acesso', [AcessoController::class, 'login'])->name('usuarios.login');
 Route::get('cadastro', [AcessoController::class, 'cadastro'])->name('usuarios.cadastro');
 Route::post('inicio', [AcessoController::class, 'cadastramento'])->name('usuarios.cadastramento');
 Route::get("/",[AcessoController::class,"deslogar"])->name("usuarios.deslogar");
 Route::post("painel",[AcessoController::class,"autenticar"])->name("usuario.autenticar");
+Route::get("painel",[AcessoController::class,"autenticar"])->name("usuario.autenticar");
