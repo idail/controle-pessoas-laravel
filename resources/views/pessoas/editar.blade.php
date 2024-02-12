@@ -1,5 +1,5 @@
 @extends('template.painel_pessoa')
-@section('title', 'Cadastro de Pessoa')
+@section('title', 'Edição de Pessoa')
 @section('content')
     <div class="col-lg-12">
 
@@ -8,24 +8,25 @@
                 <h5 class="card-title">Cadastro de Pessoa</h5>
 
                 <!-- General Form Elements -->
-                <form method="post" action="{{route('pessoa.cadastramento')}}">
+                <form method="post" action="">
                     @csrf
+                    @method("put")
                     <div class="row mb-3">
                         <div class="col-sm-12">
                             <label for="inputText" class="col-sm-2 col-form-label">Nome</label>
-                            <input type="text" class="form-control" name="nome_pessoa">
+                            <input type="text" class="form-control" name="nome_pessoa" value="{{$pessoa->nome}}">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-12">
                             <label for="inputEmail" class="col-sm-2 col-form-label">Idade</label>
-                            <input type="text" class="form-control" name="idade_pessoa">
+                            <input type="text" class="form-control" name="idade_pessoa" value="{{$pessoa->idade}}">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-12">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Cidade</label>
-                            <input type="text" class="form-control" name="cidade_pessoa">
+                            <input type="text" class="form-control" name="cidade_pessoa" value="{{$pessoa->cidade}}">
                         </div>
                     </div>
                     <!-- <div class="row mb-3">
@@ -147,7 +148,7 @@
                     <div class="row mb-3">
                         <!-- <label class="col-sm-2 col-form-label">Submit Button</label> -->
                         <div class="col-lg-2">
-                            <button type="submit" class="btn btn-primary mb-4">Cadastrar</button><br>
+                            <button type="submit" class="btn btn-primary mb-4">Alterar</button><br>
                             @if($mensagem = session()->get("sucesso"))
                             <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
                                 {{$mensagem}}
