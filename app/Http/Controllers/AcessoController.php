@@ -26,7 +26,7 @@ class AcessoController extends Controller
         $usuario->save();
 
         session()->put("nome_usuario",$dados->nome_usuario);
-        return view('template.index');
+        return view('template.painel_pessoa');
     }
 
     public function deslogar()
@@ -38,7 +38,7 @@ class AcessoController extends Controller
     public function autenticar(Request $solicitacao_autenticar)
     {
         if(session()->has("nome_usuario")){
-            return view("template.index");
+            return view("template.painel_pessoa");
         }else{
             $recebe_usuario = $solicitacao_autenticar->nome_acesso;
             $recebe_senha = $solicitacao_autenticar->senha_acesso;
@@ -48,7 +48,7 @@ class AcessoController extends Controller
             if($usuario)
             {
                 session()->put("nome_usuario",$usuario->nome);
-                return view("template.index");
+                return view("template.painel_pessoa");
             }else{
                 session()->flash("dados_errados","Favor verificar os dados para acesso");
                 return redirect()->back();

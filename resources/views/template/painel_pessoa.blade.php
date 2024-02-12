@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Painel - Controle de Pessoas</title>
+  <title>@yield("title")</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -291,7 +291,7 @@
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="{{route('pessoa.cadastro')}}">
               <i class="bi bi-circle"></i><span>Cadastrar Pessoas</span>
             </a>
           </li>
@@ -521,6 +521,8 @@
 
       
       <div class="row">
+
+        @yield('content')
 
         <!-- Left side columns -->
         {{-- <div class="col-lg-8">

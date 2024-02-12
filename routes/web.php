@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AcessoController;
+use App\Http\Controllers\PessoaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,5 @@ Route::post('inicio', [AcessoController::class, 'cadastramento'])->name('usuario
 Route::get("/",[AcessoController::class,"deslogar"])->name("usuarios.deslogar");
 Route::post("painel",[AcessoController::class,"autenticar"])->name("usuario.autenticar");
 Route::get("painel",[AcessoController::class,"autenticar"])->name("usuario.autenticar");
+
+Route::get("/cadastro_pessoa",[PessoaController::class,"cadastro"])->name("pessoa.cadastro");
