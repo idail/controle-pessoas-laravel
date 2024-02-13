@@ -28,7 +28,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{URL::asset('assets/css/style.css')}}" rel="stylesheet">
-
+  
+  <!-- <script src="{{ URL::asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script> -->
   <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: Jan 29 2024 with Bootstrap v5.3.2
@@ -1172,7 +1173,7 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  
   <!-- Vendor JS Files -->
   <script src="{{URL::asset('assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
   <script src="{{URL::asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

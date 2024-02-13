@@ -5,10 +5,10 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Cadastro de Pessoa</h5>
+                <h5 class="card-title">Edição de Pessoa</h5>
 
                 <!-- General Form Elements -->
-                <form method="post" action="">
+                <form method="post" action="{{route('pessoa.edita',$pessoa->id)}}">
                     @csrf
                     @method("put")
                     <div class="row mb-3">
@@ -29,6 +29,8 @@
                             <input type="text" class="form-control" name="cidade_pessoa" value="{{$pessoa->cidade}}">
                         </div>
                     </div>
+
+                    <input type="hidden" name="codigo_pessoa" value="{{$pessoa->id}}">
                     <!-- <div class="row mb-3">
                         <label for="inputNumber" class="col-sm-2 col-form-label">Number</label>
                         <div class="col-sm-10">

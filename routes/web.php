@@ -29,4 +29,7 @@ Route::get("painel",[AcessoController::class,"autenticar"])->name("usuario.auten
 Route::get("/cadastro_pessoa",[PessoaController::class,"cadastro"])->name("pessoa.cadastro");
 Route::post("cadastramento",[PessoaController::class,"cadastramento_pessoa"])->name("pessoa.cadastramento");
 Route::get("/pessoas",[PessoaController::class,"pessoas"])->name("buscar.pessoas");
-Route::get("/pessoas/{item}/edita_pessoa",[PessoaController::class,"exibir_edicao"])->name("pessoa.exibi_edicao");
+Route::get("/pessoas/edita_pessoa/{item}",[PessoaController::class,"exibir_edicao"])->name("pessoa.exibi_edicao");
+Route::put("/pessoas/edita/{item}",[PessoaController::class,"edita"])->name("pessoa.edita");
+Route::get("/pessoas/excluir/{item}",[PessoaController::class,"exibir_modal_delecao"])->name("pessoa.deletar");
+Route::delete("/pessoas/{item}",[PessoaController::class],"exclusao")->name("pessoas.excluir");
