@@ -29,4 +29,4 @@ Route::get("painel",[AcessoController::class,"autenticar"])->name("usuario.auten
 Route::get("/cadastro_pessoa",[PessoaController::class,"cadastro"])->name("pessoa.cadastro");
 Route::post("cadastramento",[PessoaController::class,"cadastramento_pessoa"])->name("pessoa.cadastramento");
 Route::get("/pessoas",[PessoaController::class,"pessoas"])->name("buscar.pessoas");
-Route::get("/pessoas/{item}/edita_pessoa",[PessoaController::class,"exibir_edicao"])->name("pessoa.exibi_edicao");
+Route::get("pessoas/{item}/edicao",[PessoaController::class,"exibir_edicao"])->name("pessoa.exibi_edicao");

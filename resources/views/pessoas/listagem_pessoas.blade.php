@@ -28,7 +28,7 @@
                     <td>{{$pessoas->idade}}</td>
                     <td>{{$pessoas->cidade}} - {{$pessoas->id}}</td>
                     <td>
-                        <a href="{{route('pessoa.exibi_edicao',$pessoas->id)}}"><i class="bi bi-pencil-square fs-3" title="Editar Pessoa" style="margin-inline-end: 10%;"></i></a>
+                        <a href="{{route('pessoa.exibi_edicao', $pessoas->id)}}"><i class="bi bi-pencil-square fs-3" title="Editar Pessoa" style="margin-inline-end: 10%;"></i></a>
                         <a href=""><i class="bi bi-trash fs-3" title="Excluir Pessoa"></i></a>
                     </td>
                 </tr>

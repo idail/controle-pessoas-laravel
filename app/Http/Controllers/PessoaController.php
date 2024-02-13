@@ -29,10 +29,10 @@ class PessoaController extends Controller
         return view("pessoas.listagem_pessoas",["registros"=>$registros_pessoas]);
     }
 
-    public function exibir_edicao(pessoa $registro)
+    public function exibir_edicao(Pessoa $registro)
     {
-        //$verificando = pessoa::find($registro);
-        dd($registro);
+        $verificando = Pessoa::find($registro);
+        var_dump($registro);
         //return view("pessoas.editar",["pessoa"=>$registro]);
     }
 }
