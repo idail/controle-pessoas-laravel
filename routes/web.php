@@ -32,4 +32,4 @@ Route::get("/pessoas",[PessoaController::class,"pessoas"])->name("buscar.pessoas
 Route::get("/pessoas/edita_pessoa/{item}",[PessoaController::class,"exibir_edicao"])->name("pessoa.exibi_edicao");
 Route::put("/pessoas/edita/{item}",[PessoaController::class,"edita"])->name("pessoa.edita");
 Route::get("/pessoas/excluir/{item}",[PessoaController::class,"exibir_modal_delecao"])->name("pessoa.deletar");
-Route::delete("/pessoas/{item}",[PessoaController::class],"exclusao")->name("pessoas.exclusao");
+Route::delete("/pessoas/exclusao/{item}",[PessoaController::class,"exclusao_pessoa"])->name("pessoa.exclusao");

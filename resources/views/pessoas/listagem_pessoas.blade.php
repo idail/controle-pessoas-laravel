@@ -7,17 +7,8 @@
     </div>
 </div>
 
-<?php
-$recebe_codigo = "";
-?>
 
-@if(!empty($codigo_recebido))
-<h4>{{$codigo_recebido}}</h4>
-@else
-echo "nada"
-@endif
 
-<script src="{{URL::asset('assets/vendor/jquery/jquery.min.js')}}"></script>
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Pessoas</h5>
@@ -37,7 +28,7 @@ echo "nada"
                 <tr>
                     <td>{{$pessoas->nome}}</td>
                     <td>{{$pessoas->idade}}</td>
-                    <td>{{$pessoas->cidade}} - {{$pessoas->id}} - $recebe_codigo</td>
+                    <td>{{$pessoas->cidade}}</td>
                     <td>
                         <a href="{{route('pessoa.exibi_edicao',$pessoas->id)}}"><i class="bi bi-pencil-square fs-3" title="Editar Pessoa" style="margin-inline-end: 10%;"></i></a>
                         <a href="{{route('pessoa.deletar',$pessoas->id)}}"><i class="bi bi-trash fs-3" title="Excluir Pessoa"></i></a>
@@ -52,7 +43,7 @@ echo "nada"
 
 
 
-@if(!empty($codigo_recebido))
+
 
 <div class="modal fade" id="deletar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -69,9 +60,9 @@ echo "nada"
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                
-                <form method="POST" action="{{route('pessoas.excluir',$codigo_recebido)}}">
-                
+                @if(!empty($codigo_recebido))                
+                <form method="POST" action="{{route('pessoa.exclusao',$codigo_recebido)}}">
+                @endif
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger">Excluir</button>
@@ -80,10 +71,13 @@ echo "nada"
         </div>
     </div>
 </div>
-
+<script src="{{URL::asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+@if(!empty($codigo_recebido))
 <script>
     $(document).ready(function(e) {
         $("#deletar").modal("show");
     });
 </script>
 @endif
+
+@endsection
