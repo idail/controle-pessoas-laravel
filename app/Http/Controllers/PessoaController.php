@@ -32,7 +32,7 @@ class PessoaController extends Controller
     public function exibir_edicao(pessoa $registro)
     {
         //$verificando = pessoa::find($registro);
-        dd($registro);
+        //dd($registro);
         //return view("pessoas.editar",["pessoa"=>$registro]);
     }
 }

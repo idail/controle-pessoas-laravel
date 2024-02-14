@@ -64,7 +64,7 @@ echo "nada"
                 </button>
             </div>
             <div class="modal-body">
-                Deseja Realmente Excluir este Registro?
+                Deseja realmente excluir esse registro?
 
             </div>
             <div class="modal-footer">
