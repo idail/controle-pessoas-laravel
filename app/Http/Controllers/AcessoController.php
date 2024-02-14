@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CadUsuarioRequest;
+use App\Http\Requests\UsuarioRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,8 +17,10 @@ class AcessoController extends Controller
         return view("acesso.cadastro");
     }
 
-    public function cadastramento(Request $dados)
+    public function cadastramento(CadUsuarioRequest $dados)
     {
+        $dados->validated();
+        
         $usuario = new User();
         $usuario->nome  = $dados->nome_usuario;
         $usuario->email = $dados->email_usuario;
@@ -35,11 +39,13 @@ class AcessoController extends Controller
         return view("acesso.index");
     }
 
-    public function autenticar(Request $solicitacao_autenticar)
+    public function autenticar(UsuarioRequest $solicitacao_autenticar)
     {
         if(session()->has("nome_usuario")){
             return view("template.painel_pessoa");
         }else{
+            $solicitacao_autenticar->validated();
+            
             $recebe_usuario = $solicitacao_autenticar->nome_acesso;
             $recebe_senha = $solicitacao_autenticar->senha_acesso;
 

@@ -1,34 +1,53 @@
 @extends('template.painel_pessoa')
 @section('title', 'Cadastro de Pessoa')
 @section('content')
-    <div class="col-lg-12">
+<div class="col-lg-12">
 
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Cadastro de Pessoa</h5>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Cadastro de Pessoa</h5>
 
-                <!-- General Form Elements -->
-                <form method="post" action="{{route('pessoa.cadastramento')}}">
-                    @csrf
-                    <div class="row mb-3">
-                        <div class="col-sm-12">
-                            <label for="inputText" class="col-sm-2 col-form-label">Nome</label>
-                            <input type="text" class="form-control" name="nome_pessoa">
+            <!-- General Form Elements -->
+            <form method="post" action="{{route('pessoa.cadastramento')}}">
+                @csrf
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <label for="inputText" class="col-sm-2 col-form-label">Nome</label>
+                        <input type="text" class="form-control" name="nome_pessoa" value="{{old('nome_pessoa')}}">
+                        @error("nome_pessoa")
+                        <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show" role="alert">
+                            {{$message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
+                        @enderror
+
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-sm-12">
-                            <label for="inputEmail" class="col-sm-2 col-form-label">Idade</label>
-                            <input type="text" class="form-control" name="idade_pessoa">
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Idade</label>
+                        <input type="text" class="form-control" name="idade_pessoa" value="{{old('idade_pessoa')}}">
+                        @error("idade_pessoa")
+                        <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show" role="alert">
+                            {{$message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
+                        @enderror
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-sm-12">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Cidade</label>
-                            <input type="text" class="form-control" name="cidade_pessoa">
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Cidade</label>
+                        <input type="text" class="form-control" name="cidade_pessoa" value="{{old('cidade_pessoa')}}">
+                        @error("cidade_pessoa")
+                        <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show" role="alert">
+                            {{$message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
+                        @enderror
                     </div>
-                    <!-- <div class="row mb-3">
+                </div>
+                <!-- <div class="row mb-3">
                         <label for="inputNumber" class="col-sm-2 col-form-label">Number</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control">
@@ -144,23 +163,23 @@
                         </div>
                     </div> -->
 
-                    <div class="row mb-3">
-                        <!-- <label class="col-sm-2 col-form-label">Submit Button</label> -->
-                        <div class="col-lg-2">
-                            <button type="submit" class="btn btn-primary mb-4">Cadastrar</button><br>
-                            @if($mensagem = session()->get("sucesso"))
-                            <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
-                                {{$mensagem}}
-                            </div>
-                            @endif
+                <div class="row mb-3">
+                    <!-- <label class="col-sm-2 col-form-label">Submit Button</label> -->
+                    <div class="col-lg-2">
+                        <button type="submit" class="btn btn-primary mb-4">Cadastrar</button><br>
+                        @if($mensagem = session()->get("sucesso"))
+                        <div class="alert alert-primary bg-primary text-light border-0 alert-dismissible fade show" role="alert">
+                            {{$mensagem}}
                         </div>
+                        @endif
                     </div>
+                </div>
 
-                </form>
+            </form>
 
-            </div>
         </div>
-
     </div>
+
+</div>
 
 @endsection

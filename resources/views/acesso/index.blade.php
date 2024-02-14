@@ -66,32 +66,48 @@
 
                   <form class="row g-3 needs-validation" novalidate action="{{route('usuario.autenticar')}}" method="post">
                     @csrf
-                    <div class="col-12">
-                      <label for="yourUsername" class="form-label">Usuario</label>
-                      <div class="input-group has-validation">
-                        {{-- <span class="input-group-text" id="inputGroupPrepend">@</span> --}}
-                        <input type="text" name="nome_acesso" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                    <div class="row mb-3">
+                      <div class="col-12">
+                        <label for="yourUsername" class="form-label">Usuario</label>
+                        <div class="input-group has-validation">
+                          {{-- <span class="input-group-text" id="inputGroupPrepend">@</span> --}}
+                          <input type="text" name="nome_acesso" class="form-control" id="yourUsername">
+                          @error("nome_acesso")
+                          <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show mt-3" role="alert">
+                            {{$message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                          @enderror
+                        </div>
                       </div>
                     </div>
 
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Senha</label>
-                      <input type="password" name="senha_acesso" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
+                    <div class="row mb-3">
+                      <div class="col-12">
+                        <label for="yourPassword" class="form-label">Senha</label>
+                        <input type="password" name="senha_acesso" class="form-control" id="yourPassword">
+                        @error("senha_acesso")
+                        <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show mt-3" role="alert">
+                          {{$message}}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @enderror
+                      </div>
                     </div>
 
                     {{-- <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                        
                       </div>
                     </div> --}}
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Não possui cadastro?<a href="{{route('usuarios.cadastro')}}">Cadastre-se</a></p>
+                    <div class="row mb-3">
+                      <div class="col-12">
+                        <button class="btn btn-primary w-100" type="submit">Login</button>
+                      </div>
+                      <div class="col-12">
+                        <p class="small mb-0">Não possui cadastro?<a href="{{route('usuarios.cadastro')}}">Cadastre-se</a></p>
+                      </div>
                     </div>
                   </form>
 

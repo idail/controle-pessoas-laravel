@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\PessoaRequest;
 use App\Models\Pessoa;
 use Illuminate\Http\Request;
 
@@ -10,8 +12,10 @@ class PessoaController extends Controller
         return view("pessoas.cadastro");
     }
 
-    public function cadastramento_pessoa(Request $dados)
+    public function cadastramento_pessoa(PessoaRequest $dados)
     {
+        $dados->validated();
+
         $pessoa = new Pessoa();
 
         $pessoa->nome = $dados->nome_pessoa;
@@ -19,7 +23,9 @@ class PessoaController extends Controller
         $pessoa->cidade = $dados->cidade_pessoa;
 
         $pessoa->save();    
-        //return redirect()->route("pessoa.cadastro")->with("sucesso","Pessoa cadastrada com sucesso");    
+
+        //Pessoa::create($informacoes);
+        // return redirect()->route("pessoa.cadastro")->with("sucesso","Pessoa cadastrada com sucesso");    
         return redirect()->route("buscar.pessoas");
     }
 

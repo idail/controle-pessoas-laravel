@@ -64,33 +64,52 @@
                     <p class="text-center small">Informe seus dados</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate action="{{route('usuarios.cadastramento')}}" method="post">
+                  <form class="row g-3 " novalidate action="{{route('usuarios.cadastramento')}}" method="post">
                     @csrf
                     <div class="col-12">
                       <label for="yourName" class="form-label">Nome</label>
-                      <input type="text" name="nome_usuario" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <input type="text" name="nome_usuario" class="form-control" id="yourName">
+                      @error("nome_usuario")
+                      <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show mt-3" role="alert">
+                        {{$message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      @enderror
                     </div>
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Email</label>
-                      <input type="email" name="email_usuario" class="form-control" id="yourEmail" required>
-                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                      <input type="email" name="email_usuario" class="form-control" id="yourEmail">
+                      @error("email_usuario")
+                      <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show mt-3" role="alert">
+                        {{$message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      @enderror
                     </div>
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Usuário</label>
-                      <div class="input-group has-validation">
-                        {{-- <span class="input-group-text" id="inputGroupPrepend">@</span> --}}
-                        <input type="text" name="usuario" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please choose a username.</div>
+
+                      <input type="text" name="usuario" class="form-control" id="yourUsername" />
+                      @error("usuario")
+                      <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show mt-3" role="alert">
+                        {{$message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                       </div>
+                      @enderror
+
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Senha</label>
-                      <input type="password" name="senha_usuario" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
+                      <input type="password" name="senha_usuario" class="form-control" id="yourPassword">
+                      @error("senha_usuario")
+                      <div class="alert alert-warning bg-warning border-0 alert-dismissible fade show mt-3" role="alert">
+                        {{$message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      @enderror
                     </div>
 
                     {{-- <div class="col-12">
