@@ -33,3 +33,5 @@ Route::get("/pessoas/edita_pessoa/{item}",[PessoaController::class,"exibir_edica
 Route::put("/pessoas/edita/{item}",[PessoaController::class,"edita"])->name("pessoa.edita");
 Route::get("/pessoas/excluir/{item}",[PessoaController::class,"exibir_modal_delecao"])->name("pessoa.deletar");
 Route::delete("/pessoas/exclusao/{item}",[PessoaController::class,"exclusao_pessoa"])->name("pessoa.exclusao");
+
+Route::get("painel",[AcessoController::class,"inicio"])->name("inicio");

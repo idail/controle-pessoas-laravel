@@ -22,8 +22,8 @@ class CadUsuarioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nome_usuario" => "required",
-            "email_usuario" => "required",
+            "nome_usuario" => "required|min:5|max:50",
+            "email_usuario" => "required|email|unique:usuario",
             "usuario" => "required",
             "senha_usuario" => "required",
         ];
@@ -33,7 +33,11 @@ class CadUsuarioRequest extends FormRequest
     {
         return [
             "nome_usuario.required" => "Favor preencher o nome do usuário",
+            "nome_usuario.min"=> "O nome do usuário precisa ter no minimo 5 caracteres",
+            "nome_usuario.max"=> "O nome do usuário precisa ter no maxiumo 50 caracteres",
             "email_usuario.required" => "Favor preencher o e-mail do usuário",
+            "email_usuario.email"=> "Favor informar um e-mail valido",
+            "email_usuario.unique"=> "Email ja consta cadastrado",
             "usuario.required" => "Favor preencher o usuário",
             "senha_usuario.required" => "Favor preencher a senha do usuário"
         ];

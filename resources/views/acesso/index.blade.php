@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>Gerenciar Pessoas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -64,7 +64,7 @@
                     <p class="text-center small">Informe seus dados para acesso</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate action="{{route('usuario.autenticar')}}" method="post">
+                  <form class="row g-3" novalidate action="{{route('usuario.autenticar')}}" method="post">
                     @csrf
                     <div class="row mb-3">
                       <div class="col-12">

@@ -23,7 +23,7 @@ class AcessoController extends Controller
         
         $usuario = new User();
         $usuario->nome  = $dados->nome_usuario;
-        $usuario->email = $dados->email_usuario;
+        $usuario->email_usuario = $dados->email_usuario;
         $usuario->senha = $dados->senha_usuario;
         $usuario->usuario = $dados->usuario;
 
@@ -60,5 +60,10 @@ class AcessoController extends Controller
                 return redirect()->back();
             }
         }
+    }
+
+    public function inicio()
+    {
+        return view("template.painel_pessoa");
     }
 }
